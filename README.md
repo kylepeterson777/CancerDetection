@@ -1,2 +1,2 @@
 # CancerDetection
-Cancer detection from histopathology
+Identify metastatic tissue in histopathologic scans of lymph node sections.
