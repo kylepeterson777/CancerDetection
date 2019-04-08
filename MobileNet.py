@@ -90,11 +90,10 @@ checkpoint = ModelCheckpoint(h5_path, monitor='val_acc', verbose=1, save_best_on
 history = model.fit_generator(
     data_gen(train, id_label_map, batch_size, augment=True),
     validation_data=data_gen(val, id_label_map, batch_size),
-    epochs=2, verbose=1,
+    epochs=20, verbose=1,
     callbacks=[checkpoint],
     steps_per_epoch=len(train) // batch_size,
-    validation_steps=len(val) // batch_size,
-    use_multiprocessing=True) # False for GPU, True for non-GPU
+    validation_steps=len(val) // batch_size)
 
 
 preds = []
