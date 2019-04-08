@@ -109,5 +109,5 @@ for batch in chunker(test_files, batch_size):
     ids += ids_batch
     
 df = pd.DataFrame({'id':ids, 'label':preds})
-df.to_csv("baseline_mobilenet_v2.csv", index=False)
+df.to_csv("densenet201.csv", index=False)
 df.head()
