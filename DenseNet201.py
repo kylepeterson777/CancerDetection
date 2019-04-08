@@ -13,11 +13,10 @@ from keras.preprocessing.image import ImageDataGenerator
 from keras.layers import Convolution1D, concatenate, SpatialDropout1D, GlobalMaxPool1D, GlobalAvgPool1D, Embedding, \
     Conv2D, SeparableConv1D, Add, BatchNormalization, Activation, GlobalAveragePooling2D, LeakyReLU, Flatten
 from keras.layers import Dense, Input, Dropout, MaxPooling2D, Concatenate, GlobalMaxPooling2D, GlobalAveragePooling2D, \
-    Lambda, Multiply, LSTM, Bidirectional, PReLU, MaxPooling1D
+    Lambda, Multiply, Bidirectional, PReLU, MaxPooling1D
 from keras.layers.pooling import _GlobalPooling1D
 from keras.losses import mae, sparse_categorical_crossentropy, binary_crossentropy
 from keras.models import Model
-from keras.applications.mobilenet_v2 import MobileNetV2, preprocess_input
 from keras.applications.densenet import DenseNet201
 from keras.optimizers import Adam, RMSprop
 from keras.callbacks import ModelCheckpoint, EarlyStopping, ReduceLROnPlateau
