@@ -45,7 +45,7 @@ def chunker(seq, size):
     return (seq[pos:pos + size] for pos in range(0, len(seq), size))
 
 # image augmentation
-def data_gen(list_files, id_label_map, batch_size, augment=False):
+def data_gen(list_files, id_label_map, batch_size, augment=True):
     keras_gen = ImageDataGenerator(
                     rotation_range=10,
                     width_shift_range=0.1,
