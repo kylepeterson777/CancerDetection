@@ -1,9 +1,8 @@
 # Histopathology Cancer Detection 
 # DenseNet201 CNN classification
 
-
-import numpy as np # linear algebra
-import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+import numpy as np
+import pandas as pd 
 import os
 from glob import glob
 from random import shuffle
@@ -66,7 +65,7 @@ def data_gen(list_files, id_label_map, batch_size, augment=False):
             yield np.array(X), np.array(Y)
     
     
-def get_model_classif_densenet():
+def get_model_densenet():
     inputs = Input((96, 96, 3))
     base_model = DenseNet201(include_top=False, input_shape=(96, 96, 3))#, weights=None
     x = base_model(inputs)
@@ -82,7 +81,7 @@ def get_model_classif_densenet():
 
     return model  
 
-model = get_model_classif_densenet()
+model = get_model_densenet()
 
 batch_size=32
 h5_path = "DenseNet_model.h5"
