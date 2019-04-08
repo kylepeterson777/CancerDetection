@@ -38,11 +38,13 @@ test_files = glob('D:/Machine-Learning-Resource/Demo/Histopathology/test/*.tif')
 print("labeled_files size :", len(labeled_files))
 print("test_files size :", len(test_files))
 
-train, val = train_test_split(labeled_files, test_size=0.075, train_size=0.15, random_state=101010)
+# partition data
+train, val = train_test_split(labeled_files, test_size=0.075, train_size=0.15, random_state=101010) #use fraction of data to avoid crashing
 
 def chunker(seq, size):
     return (seq[pos:pos + size] for pos in range(0, len(seq), size))
 
+# image augmentation
 def data_gen(list_files, id_label_map, batch_size, augment=False):
     keras_gen = ImageDataGenerator(
                     rotation_range=10,
@@ -63,7 +65,7 @@ def data_gen(list_files, id_label_map, batch_size, augment=False):
                 
             yield np.array(X), np.array(Y)
     
-    
+ # define densenet model    
 def get_model_densenet():
     inputs = Input((96, 96, 3))
     base_model = DenseNet201(include_top=False, input_shape=(96, 96, 3))#, weights=None
@@ -82,6 +84,7 @@ def get_model_densenet():
 
 model = get_model_densenet()
 
+# model parameters
 batch_size=32
 h5_path = "DenseNet_model.h5"
 checkpoint = ModelCheckpoint(h5_path, monitor='val_acc', verbose=1, save_best_only=True, mode='max')
@@ -93,7 +96,6 @@ history = model.fit_generator(
     callbacks=[checkpoint],
     steps_per_epoch=len(train) // batch_size,
     validation_steps=len(val) // batch_size) 
-
 
 preds = []
 ids = []
