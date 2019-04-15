@@ -6,7 +6,7 @@ Results:
 
 NASnet: Acc. = 0.969 (30 epochs)
 
-DenseNet: Acc. = 0.959 (10 epochs)
+DenseNet: Acc. = 0.971 (50 epochs)
 
 MobileNetV2: Acc. = 0.902 (10 epochs)
 
