@@ -1,3 +1,5 @@
+# keras implementation of Neural Arcitecture Search Network (NASnet)
+
 import numpy as np 
 import pandas as pd 
 import os
