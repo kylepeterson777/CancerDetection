@@ -4,7 +4,7 @@ Identify metastatic tissue in histopathologic scans of lymph node sections.
 
 Results: 
 
-NASnet: Acc. = 0.969 (30 epochs)
+NASnet: Acc. = 0.974 (50 epochs)
 
 DenseNet: Acc. = 0.971 (50 epochs)
 
